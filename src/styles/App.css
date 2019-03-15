@@ -1,0 +1,166 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+html {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 900;
+}
+
+body {
+  color: #ffffff;
+  background-color: #000000;
+  font-size: 16px;
+}
+
+.header {
+  z-index: 1;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  width: 100%;
+  padding: 0 40px;
+  transition: 0.5s;
+}
+
+.gray {
+  background-color: #3f3f3f;
+}
+
+.black {
+  background-color: #000000;
+}
+
+.transparent {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.column {
+  display: flex;
+  width: 100%;
+  justify-content: left;
+  align-items: center;
+}
+
+.column nav {
+  padding-left: 25px;
+  width: 400px;
+}
+
+.column nav ul {
+  list-style-type: none;
+  font-size: 1.2rem;
+}
+
+.column nav ul li {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.column form {
+  width: 100%;
+}
+
+.column input {
+  width: 100%;
+  min-width: 200px;
+  height: 32px;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 0.2ch;
+  padding: 0 10px;
+  border: 0;
+}
+
+.column input:focus {
+  outline: none;
+  border: 1px solid #F5A623;
+  ;
+  border-radius: 5px;
+}
+
+.column button {
+  position: relative;
+  left: 100px;
+  top: 20px;
+  width: 30px;
+  height: 30px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #a7cee0;
+  margin-left: 30px;
+}
+
+.featured-movie {
+  height: 80vh;
+  padding-top: 200px;
+  background-image: linear-gradient(110deg, black 35%, transparent 90%), linear-gradient(to bottom, transparent 80%, black 100%), url("https://source.unsplash.com/user/erondu/1600x900");
+  background-size: cover;
+}
+
+.featured-movie article {
+  max-width: 400px;
+  margin-left: 20%;
+}
+
+.featured-movie article button {
+  margin: 20px auto;
+}
+
+.button {
+  height: 34px;
+  width: 110px;
+  background: rgba(216, 216, 216, 0.20);
+  border: none;
+  color: #ffffff;
+  font-size: 1.2rem;
+  border-radius: 3px;
+}
+
+.category figure {
+  height: 120px;
+  width: 200px;
+  margin: 0 5px;
+  border-radius: 5px;
+  border: 1px solid #ffffff;
+  background-color: rgb(100, 100, 100);
+  flex: 0 0 auto;
+  transition: all .3s ease-in-out;
+}
+
+.category figure:hover {
+  height: 220px;
+  width: 300px;
+}
+
+.horizontal-scroll {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  overflow-x: auto;
+  height: 220px;
+}
+
+.movie-library {
+  padding: 0 20px;
+}

@@ -1,28 +1,49 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Navigation from './components/Navigation';
+import Featuredmovie from './components/Featuredmovie';
+import Movielibrary from './components/Movielibrary';
+import Footer from './components/Footer';
+import Modal from './components/Modal';
+
+import './styles/App.css';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+	constructor() {
+		super();
+		this.handlePictureClicked = this.handlePictureClicked.bind(this);
+	}
+	handlePictureClicked(e) {
+		console.log(e.target);
+	}
+	componentDidMount() {
+		window.onscroll = () => {
+			if (window.pageYOffset > 100) {
+				document.getElementById('header').classList.add('black');
+				document.getElementById('header').classList.remove('transparent');
+				document.getElementById('search').classList.add('gray');
+				document.getElementById('search').classList.remove('black');
+			} else {
+				document.getElementById('header').classList.add('transparent');
+				document.getElementById('header').classList.remove('black');
+				document.getElementById('search').classList.add('black');
+				document.getElementById('search').classList.remove('gray');
+			}
+		};
+	}
+	render() {
+		return (
+			<div className="App">
+				<Navigation />
+				<div className="container" id="container">
+					<Featuredmovie />
+					<Modal />
+					<Movielibrary handlepictureclicked={this.handlePictureClicked} />
+
+					<Footer />
+				</div>
+			</div>
+		);
+	}
 }
 
 export default App;
