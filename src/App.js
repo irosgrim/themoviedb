@@ -11,9 +11,15 @@ class App extends Component {
 	constructor() {
 		super();
 		this.handlePictureClicked = this.handlePictureClicked.bind(this);
+
+		this.state = {
+			modalvisible: false,
+			movie: []
+		};
 	}
 	handlePictureClicked(e) {
-		console.log(e.target);
+		console.log(e);
+		this.setState({ modalvisible: !this.state.modalvisible, movie: e });
 	}
 	componentDidMount() {
 		window.onscroll = () => {
@@ -35,8 +41,17 @@ class App extends Component {
 			<div className="App">
 				<Navigation />
 				<div className="container" id="container">
+					<Modal
+						visible={this.state.modalvisible}
+						movieinfo={this.state.movie}
+						closemodal={e => {
+							//console.log(e.target.className);
+							e.target.className === 'button' ||
+								this.setState({ modalvisible: false });
+						}}
+					/>
 					<Featuredmovie />
-					<Modal />
+
 					<Movielibrary handlepictureclicked={this.handlePictureClicked} />
 
 					<Footer />
