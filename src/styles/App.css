@@ -184,8 +184,9 @@ body {
 }
 
 .modal-info {
-  height: 400px;
+  min-height: 400px;
   width: 100%;
+  padding-bottom: 20px;
 }
 
 .modal-text {
@@ -199,4 +200,18 @@ body {
 
 .rating {
   color: #F5A623;
+}
+
+footer {
+  text-align: center;
+  height: 60px;
+  width: 100%;
+  color: #727272;
+  padding-top: 20px;
+}
+
+footer a {
+  display: inline-block;
+  color: #F5A623;
+  font-weight: 600;
 }

@@ -14,7 +14,11 @@ class App extends Component {
 
 		this.state = {
 			modalvisible: false,
-			movie: []
+			movie: [],
+			navbar_change_color: {
+				header: 'transparent',
+				search: 'black'
+			}
 		};
 	}
 	handlePictureClicked(e) {
@@ -23,23 +27,19 @@ class App extends Component {
 	}
 	componentDidMount() {
 		window.onscroll = () => {
-			if (window.pageYOffset > 100) {
-				document.getElementById('header').classList.add('black');
-				document.getElementById('header').classList.remove('transparent');
-				document.getElementById('search').classList.add('gray');
-				document.getElementById('search').classList.remove('black');
-			} else {
-				document.getElementById('header').classList.add('transparent');
-				document.getElementById('header').classList.remove('black');
-				document.getElementById('search').classList.add('black');
-				document.getElementById('search').classList.remove('gray');
-			}
+			window.pageYOffset > 100
+				? this.setState({
+						navbar_change_color: { header: 'black', search: 'gray' }
+				  })
+				: this.setState({
+						navbar_change_color: { header: 'transparent', search: 'black' }
+				  });
 		};
 	}
 	render() {
 		return (
 			<div className="App">
-				<Navigation />
+				<Navigation colorstate={this.state.navbar_change_color} />
 				<div className="container" id="container">
 					<Modal
 						visible={this.state.modalvisible}

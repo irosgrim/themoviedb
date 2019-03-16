@@ -18,7 +18,7 @@ class Modal extends Component {
 						backgroundImage: `linear-gradient(90deg, black 50%, transparent 100%), url("https://image.tmdb.org/t/p/original/${
 							this.props.movieinfo.backdrop_path
 						}"`,
-						backgroundPosition: 'left top, 300px top',
+						backgroundPosition: 'left top, 20vw top',
 						backgroundSize: 'cover'
 					}}>
 					<article className="modal-text">

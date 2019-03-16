@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Search() {
+function Search(props) {
 	return (
 		<form>
-			<input type="text" id="search" className="black" />
+			<input type="text" id="search" className={props.colorstate} />
 		</form>
 	);
 }

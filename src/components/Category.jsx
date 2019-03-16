@@ -10,8 +10,9 @@ class Category extends Component {
 	componentDidMount() {
 		const api_key = process.env.REACT_APP_API_KEY;
 		const genre = this.props.genre;
+		const randomPage = Math.floor(Math.random() * 50 + 1);
 		fetch(
-			`https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&with_genres=${genre}&page=1&sort_by=popularity.desc`
+			`https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&with_genres=${genre}&page=${randomPage}&sort_by=popularity.desc`
 		)
 			.then(response => {
 				return response.json();
