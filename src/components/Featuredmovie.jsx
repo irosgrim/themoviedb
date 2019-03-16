@@ -15,6 +15,7 @@ class Featuredmovie extends Component {
 			.then(response => {
 				return response.json();
 			})
+
 			.then(data => {
 				this.setState({ movie: data });
 			});

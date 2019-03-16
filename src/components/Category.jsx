@@ -10,7 +10,7 @@ class Category extends Component {
 	componentDidMount() {
 		const api_key = process.env.REACT_APP_API_KEY;
 		const genre = this.props.genre;
-		const randomPage = Math.floor(Math.random() * 50 + 1);
+		const randomPage = Math.floor(Math.random() * 10 + 1);
 		fetch(
 			`https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&with_genres=${genre}&page=${randomPage}&sort_by=popularity.desc`
 		)
@@ -35,7 +35,7 @@ class Category extends Component {
 								onClick={this.props.handlepictureclicked.bind(this, movie)}>
 								{movie.backdrop_path && (
 									<img
-										src={`https://image.tmdb.org/t/p/w300/${
+										src={`https://image.tmdb.org/t/p/w300${
 											movie.backdrop_path
 										}`}
 										alt={movie.title}
