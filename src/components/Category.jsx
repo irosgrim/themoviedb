@@ -33,15 +33,12 @@ class Category extends Component {
 							<figure
 								key={movie.id}
 								onClick={this.props.handlepictureclicked.bind(this, movie)}>
-								{movie.backdrop_path && (
-									<img
-										src={`https://image.tmdb.org/t/p/w300${
-											movie.backdrop_path
-										}`}
-										alt={movie.title}
-										className="poster"
-									/>
-								)}
+								<img
+									src={`https://image.tmdb.org/t/p/w300${movie.backdrop_path}`}
+									alt={movie.title}
+									className="poster"
+									title={movie.title}
+								/>
 							</figure>
 						);
 					})}

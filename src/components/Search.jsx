@@ -1,10 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-function Search(props) {
-	return (
-		<form>
-			<input type="text" id="search" className={props.colorstate} />
-		</form>
-	);
+class Search extends Component {
+	constructor() {
+		super();
+		this.state = { showSearchInput: false };
+	}
+	render() {
+		return (
+			<form>
+				<input
+					type="text"
+					id="search"
+					className={
+						this.state.showSearchInput === false
+							? `${this.props.colorstate} input-hide`
+							: `${this.props.colorstate} input-show`
+					}
+				/>
+				<i
+					class="fas fa-search search-button"
+					onClick={() => {
+						this.setState({ showSearchInput: !this.state.showSearchInput });
+						console.log(this.state.showSearchInput);
+					}}
+				/>
+			</form>
+		);
+	}
 }
 export default Search;

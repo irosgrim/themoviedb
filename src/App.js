@@ -27,7 +27,7 @@ class App extends Component {
 	}
 	componentDidMount() {
 		window.onscroll = () => {
-			window.pageYOffset > 100
+			window.pageYOffset > 50
 				? this.setState({
 						navbar_change_color: { header: 'black', search: 'gray' }
 				  })
@@ -41,15 +41,17 @@ class App extends Component {
 			<div className="App">
 				<Navigation colorstate={this.state.navbar_change_color} />
 				<div className="container" id="container">
-					<Modal
-						visible={this.state.modalvisible}
-						movieinfo={this.state.movie}
-						closemodal={e => {
-							//console.log(e.target.className);
-							e.target.className === 'button' ||
-								this.setState({ modalvisible: false });
-						}}
-					/>
+					{this.state.modalvisible === false ? null : (
+						<Modal
+							visible={this.state.modalvisible}
+							movieinfo={this.state.movie}
+							closemodal={e => {
+								//console.log(e.target.className);
+								e.target.className === 'button' ||
+									this.setState({ modalvisible: false });
+							}}
+						/>
+					)}
 					<Featuredmovie />
 
 					<Movielibrary handlepictureclicked={this.handlePictureClicked} />
