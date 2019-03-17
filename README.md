@@ -1,4 +1,4 @@
-##The Movie DB, Reactjs, netflix inspired movie playlist
+## The Movie DB, Reactjs, netflix inspired movie playlist
 
 ![the movie db](themoviedb.png)
 
