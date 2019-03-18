@@ -4,7 +4,7 @@ class Modal extends Component {
 	constructor() {
 		super();
 		this.handleAddToMyList = this.handleAddToMyList.bind(this);
-		this.state = { trailerUrl: [] };
+		this.state = { trailerUrl: ['AcL0MeVZIxM'] };
 	}
 	handleAddToMyList() {
 		this.props.handleaddtomylist(this.props.movieinfo.id);
@@ -18,8 +18,15 @@ class Modal extends Component {
 		)
 			.then(response => response.json())
 			.then(data => {
-				if (data.videos.results !== '') {
+				if (
+					data.status_code !== 34 &&
+					(data.videos.results !== '' ||
+						data.videos.results !== null ||
+						data.videos.results !== undefined)
+				) {
 					this.setState({ trailerUrl: data.videos.results });
+				} else {
+					this.setState({ trailerUrl: [] });
 				}
 			});
 	}

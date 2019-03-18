@@ -17,7 +17,10 @@ class Navigation extends Component {
 					<Menu mylist={this.props.mylist} />
 				</div>
 				<div className="column">
-					<Search colorstate={this.props.colorstate.search} />
+					<Search
+						colorstate={this.props.colorstate.search}
+						handlesearch={this.props.handlesearch}
+					/>
 					<Dashboard />
 				</div>
 			</header>

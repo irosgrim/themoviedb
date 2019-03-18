@@ -4,10 +4,14 @@ class Search extends Component {
 	constructor() {
 		super();
 		this.state = { showSearchInput: false };
+		this.handleSubmit = this.handleSubmit.bind(this);
+	}
+	handleSubmit(e) {
+		e.prevent.default();
 	}
 	render() {
 		return (
-			<form>
+			<form onSubmit={this.handleSubmit}>
 				<input
 					type="text"
 					id="search"
@@ -16,6 +20,7 @@ class Search extends Component {
 							? `${this.props.colorstate} input-hide`
 							: `${this.props.colorstate} input-show`
 					}
+					onChange={this.props.handlesearch}
 				/>
 				<i
 					className="fas fa-search search-button"
