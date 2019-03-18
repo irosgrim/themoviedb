@@ -1,20 +1,21 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-function Menu() {
+function Menu(props) {
 	return (
 		<nav>
 			<ul>
 				<li>
-					<a href="home.html">Home</a>
+					<Link to="/">Home</Link>
 				</li>
 				<li>
-					<a href="movies.html">Movies</a>
+					<Link to="/movies">Movies</Link>
 				</li>
 				<li>
-					<a href="tv.html">TV Shows</a>
+					<Link to="/tvshows">TV Shows</Link>
 				</li>
 				<li>
-					<a href="mylist.html">My List</a>
+					<Link to="/mylist">My list {props.mylist.length || ''}</Link>
 				</li>
 			</ul>
 		</nav>

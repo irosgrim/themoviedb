@@ -1,7 +1,31 @@
 import React, { Component } from 'react';
 
 class Modal extends Component {
+	constructor() {
+		super();
+		this.handleAddToMyList = this.handleAddToMyList.bind(this);
+		this.state = { trailerUrl: [] };
+	}
+	handleAddToMyList() {
+		this.props.handleaddtomylist(this.props.movieinfo.id);
+	}
+	componentDidMount() {
+		const api_key = process.env.REACT_APP_API_KEY;
+		fetch(
+			`https://api.themoviedb.org/3/movie/${
+				this.props.movieinfo.id
+			}?api_key=${api_key}&append_to_response=videos`
+		)
+			.then(response => response.json())
+			.then(data => {
+				if (data.videos.results !== '') {
+					this.setState({ trailerUrl: data.videos.results });
+				}
+			});
+	}
+
 	render() {
+		console.log(this.state.trailerUrl);
 		return (
 			<div
 				className="modal"
@@ -28,8 +52,30 @@ class Modal extends Component {
 						</h3>
 						<h3>Release date: {this.props.movieinfo.release_date}</h3>
 						<p>{this.props.movieinfo.overview}</p>
-						<button className="button">+ My List</button>
+						<button className="button" onClick={this.handleAddToMyList}>
+							{this.props.mylist.indexOf(this.props.movieinfo.id) !== -1 ? (
+								<i className="fas fa-check" />
+							) : (
+								<i className="fas fa-plus" />
+							)}
+							&nbsp; My List
+						</button>
 					</article>
+					<div className="trailer">
+						{this.state.trailerUrl.length > 0 && (
+							<iframe
+								src={`https://www.youtube.com/embed/${
+									this.state.trailerUrl[0].key
+								}`}
+								height="300px"
+								width="90%"
+								frameBorder="0"
+								allow="autoplay; encrypted-media"
+								allowFullScreen
+								title="video"
+							/>
+						)}
+					</div>
 				</div>
 			</div>
 		);

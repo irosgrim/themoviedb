@@ -11,14 +11,29 @@ class Category extends Component {
 		const api_key = process.env.REACT_APP_API_KEY;
 		const genre = this.props.genre;
 		const randomPage = Math.floor(Math.random() * 10 + 1);
-		fetch(
-			`https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&with_genres=${genre}&page=${randomPage}&sort_by=popularity.desc`
-		)
+		const baseUrl = this.props.baseurl;
+		const whatToFetch = () => {
+			switch (genre) {
+				case 1234:
+					return `${baseUrl}/trending/all/week?api_key=${api_key}&language=en-US`;
+				case 12345:
+					return `${baseUrl}/movie/top_rated?api_key=${api_key}&language=en-US`;
+				default:
+					return `${baseUrl}/discover/movie?api_key=${api_key}&with_genres=${genre}&page=${randomPage}&sort_by=popularity.desc`;
+			}
+		};
+		fetch(whatToFetch())
 			.then(response => {
 				return response.json();
 			})
 			.then(data => {
-				this.setState({ movies: data.results });
+				if (
+					data.results.backdrop_path !== null ||
+					data.results.backdrop_path !== undefined ||
+					data.results.backdrop_path !== ''
+				) {
+					this.setState({ movies: data.results });
+				}
 			});
 	}
 	render() {

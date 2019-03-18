@@ -18,7 +18,7 @@ class Search extends Component {
 					}
 				/>
 				<i
-					class="fas fa-search search-button"
+					className="fas fa-search search-button"
 					onClick={() => {
 						this.setState({ showSearchInput: !this.state.showSearchInput });
 						console.log(this.state.showSearchInput);

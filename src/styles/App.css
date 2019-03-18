@@ -171,25 +171,20 @@ body {
 
 .category {
   overflow: visible;
-  ;
+  height: 250px;
 }
 
 .poster {
-  height: 150px;
-  width: 200px;
+  display: block;
+  height: 100%;
+  width: auto;
   margin-left: 5px;
   margin-right: 5px;
   border-radius: 5px;
   background-color: rgb(100, 100, 100);
   flex: 0 0 auto;
+  cursor: pointer;
   transition: all .3s ease-in-out;
-}
-
-.poster:hover {
-  z-index: 99;
-  height: 250px;
-  transform-origin: center center;
-  width: auto;
 }
 
 .horizontal-scroll {
@@ -201,7 +196,16 @@ body {
 }
 
 .horizontal-scroll figure {
-  height: 250px;
+  margin: 25px 0;
+  height: 150px;
+  transition: 0.3s;
+}
+
+.horizontal-scroll figure:hover {
+  margin: 0;
+  height: 200px;
+  transform-origin: center;
+  width: auto;
 }
 
 .movie-library {
@@ -220,12 +224,32 @@ body {
 }
 
 .modal-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   min-height: 400px;
   width: 100%;
   padding-bottom: 20px;
 }
 
+.trailer {
+  flex-grow: 1;
+  text-align: center;
+  color: #c0c0c0;
+}
+
+.play-btn {
+  transition: 0.3s;
+  font-size: 4rem;
+  cursor: pointer;
+}
+
+.play-btn:hover {
+  color: #ffffff;
+}
+
 .modal-text {
+  flex-grow: 1;
   max-width: 800px;
   padding: 40px 0 0 10%;
 }
